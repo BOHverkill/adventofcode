@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Day2 {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner input = new Scanner(new File(Day2.class.getResource("/Day2_input").getPath()));
+        Scanner input = new Scanner(new File(Day2.class.getResource("/2017/Day2_input").getPath()));
         int sum1 = 0;
         int sum2 = 0;
         List<List<Integer>> lines = new ArrayList<>();

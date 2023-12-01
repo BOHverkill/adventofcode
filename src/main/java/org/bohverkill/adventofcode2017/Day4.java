@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Day4 {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner input = new Scanner(new File(Day2.class.getResource("/Day4_input").getPath()));
+        Scanner input = new Scanner(new File(Day2.class.getResource("/2017/Day4_input").getPath()));
 
         int i = 0;
         int j = 0;
