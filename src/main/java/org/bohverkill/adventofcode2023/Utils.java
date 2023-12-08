@@ -29,7 +29,7 @@ public final class Utils {
 
     public static String getInput(String name) {
         try {
-            return Files.readString(Paths.get(Objects.requireNonNull(Day6.class.getResource(name)).getPath()));
+            return Files.readString(Paths.get(Objects.requireNonNull(Utils.class.getResource(name)).getPath()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
