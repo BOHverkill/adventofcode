@@ -3,20 +3,23 @@ package org.bohverkill.adventofcode2023;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Objects;
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public final class Utils {
 
+    private static final Pattern NEWLIN_PATTERN = Pattern.compile("\n");
+
     private Utils() {
         throw new IllegalStateException("Utility class");
     }
 
     public static Stream<String> getExampleLines(String example) {
-        return Arrays.stream(example.split("\n"));
+//        return Arrays.stream(example.split("\n"));
+        return NEWLIN_PATTERN.splitAsStream(example);
     }
 
     public static Stream<String> getInputLines(String name) {
@@ -41,5 +44,9 @@ public final class Utils {
             throw new IllegalStateException("Malformed input: " + input);
         }
         return matcher;
+    }
+
+    public static Stream<String> getAllMatches(Pattern pattern, String input) {
+        return pattern.matcher(input).results().map(MatchResult::group);
     }
 }
