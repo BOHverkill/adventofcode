@@ -32,12 +32,11 @@ public class Day10Part2 {
         }
         loop.removeLast();
         final Set<Position> loopPositions = loop.stream().map(pipe -> new Position(pipe.row(), pipe.column())).collect(Collectors.toSet());
-        final int[][] loopPolygon = loop.stream().filter(pipe -> !pipe.type().equals(Type.VERTICAL) && !pipe.type().equals(Type.HORIZONTAL)).map(pipe -> new int[]{pipe.row(), pipe.column()}).toArray(int[][]::new);
         final List<Position> inside = new ArrayList<>();
         for (int i = 0; i < split.length; i++) {
             for (int j = 0; j < lineLength; j++) {
                 final Position candidate = new Position(i, j);
-                if (!loopPositions.contains(candidate) && contains(loopPolygon, new double[]{candidate.row(), candidate.column()})) {
+                if (!loopPositions.contains(candidate) && isInsideLoop(split, loopPositions, candidate)) {
                     inside.add(candidate);
                 }
             }
@@ -47,28 +46,17 @@ public class Day10Part2 {
         System.out.println("Day 10 Part 2: " + inside.size());
     }
 
-    // from https://rosettacode.org/wiki/Ray-casting_algorithm#Java
-    private static boolean intersects(int[] A, int[] B, double[] P) {
-        if (A[1] > B[1]) return intersects(B, A, P);
-
-        if (P[1] == A[1] || P[1] == B[1]) P[1] += 0.0001;
-
-        if (P[1] > B[1] || P[1] < A[1] || P[0] >= Math.max(A[0], B[0])) return false;
-
-        if (P[0] < Math.min(A[0], B[0])) return true;
-
-        double red = (P[1] - A[1]) / (P[0] - A[0]);
-        double blue = (B[1] - A[1]) / (double) (B[0] - A[0]);
-        return red >= blue;
-    }
-
-    private static boolean contains(int[][] shape, double[] pnt) {
-        boolean inside = false;
-        int len = shape.length;
-        for (int i = 0; i < len; i++) {
-            if (intersects(shape[i], shape[(i + 1) % len], pnt)) inside = !inside;
+    private static boolean isInsideLoop(String[] input, Set<Position> loop, Position candidate) {
+        int intersections = 0;
+        for (int i = candidate.column() - 1; i >= 0; i--) {
+            if (loop.contains(new Position(candidate.row(), i))) {
+                final char c = input[candidate.row()].charAt(i);
+                if (c == '|' || c == 'J' || c == 'L') {
+                    intersections++;
+                }
+            }
         }
-        return inside;
+        return intersections % 2 == 1;
     }
 
     private static void printInside(String[] input, List<Position> inside) {
