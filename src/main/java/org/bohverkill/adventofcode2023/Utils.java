@@ -3,6 +3,8 @@ package org.bohverkill.adventofcode2023;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
@@ -49,4 +51,14 @@ public final class Utils {
     public static Stream<String> getAllMatches(Pattern pattern, String input) {
         return pattern.matcher(input).results().map(MatchResult::group);
     }
+
+    public static List<Integer> findPositions(final Pattern pattern, String input) {
+        final Matcher matcher = pattern.matcher(input);
+        List<Integer> positions = new ArrayList<>();
+        while (matcher.find()) {
+            positions.add(matcher.start());
+        }
+        return positions;
+    }
+
 }
