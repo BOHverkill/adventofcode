@@ -61,4 +61,10 @@ public final class Utils {
         return positions;
     }
 
+    public static String replaceCharAt(String string, int i, char c) {
+        final StringBuilder stringBuilder = new StringBuilder(string);
+        stringBuilder.setCharAt(i, c);
+        return stringBuilder.toString();
+    }
+
 }
