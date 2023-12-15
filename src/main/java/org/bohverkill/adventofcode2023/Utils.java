@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.regex.MatchResult;
@@ -20,8 +21,11 @@ public final class Utils {
     }
 
     public static Stream<String> getExampleLines(String example) {
-//        return Arrays.stream(example.split("\n"));
         return NEWLIN_PATTERN.splitAsStream(example);
+    }
+
+    public static Stream<String> getSplit(String input, String regex) {
+        return Arrays.stream(input.split(regex));
     }
 
     public static Stream<String> getInputLines(String name) {
