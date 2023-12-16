@@ -24,6 +24,14 @@ public final class Utils {
         return NEWLIN_PATTERN.splitAsStream(example);
     }
 
+    public static String[] getLines(String input) {
+        return NEWLIN_PATTERN.split(input);
+    }
+
+    public static List<String> getLinesList(String input) {
+        return List.of(getLines(input));
+    }
+
     public static Stream<String> getSplit(String input, String regex) {
         return Arrays.stream(input.split(regex));
     }
