@@ -36,6 +36,10 @@ public final class Utils {
         return Arrays.stream(input.split(regex));
     }
 
+    public static String[] splitAfterNChars(String text, int n) {
+        return text.split("(?<=\\G.{" + n + "})");
+    }
+
     public static Stream<String> getInputLines(String name) {
         try {
             return Files.lines(Paths.get(Objects.requireNonNull(Day7Part2.class.getResource(name)).getPath()));
