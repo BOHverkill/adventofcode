@@ -1,4 +1,6 @@
-package org.bohverkill.adventofcode2023;
+package org.bohverkill.utils;
+
+import org.bohverkill.adventofcode2023.Day7Part2;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,16 +22,8 @@ public final class Utils {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Stream<String> getExampleLines(String example) {
-        return NEWLIN_PATTERN.splitAsStream(example);
-    }
-
     public static String[] getLines(String input) {
         return NEWLIN_PATTERN.split(input);
-    }
-
-    public static List<String> getLinesList(String input) {
-        return List.of(getLines(input));
     }
 
     public static Stream<String> getSplit(String input, String regex) {

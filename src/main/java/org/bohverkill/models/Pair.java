@@ -1,4 +1,4 @@
-package org.bohverkill.adventofcode2023;
+package org.bohverkill.models;
 
 public record Pair<A, B>(A a, B b) {
     public static <A, B> Pair<A, B> of(A a, B b) {

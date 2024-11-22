@@ -1,6 +1,8 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.utils.Utils;
+
 public class Day15Part1 {
 
     public static void main(String[] args) {

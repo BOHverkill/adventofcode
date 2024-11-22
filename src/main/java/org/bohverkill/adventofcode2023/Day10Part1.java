@@ -1,5 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
+import org.bohverkill.utils.Utils;
+
 import java.util.*;
 
 import static org.bohverkill.adventofcode2023.Day10Part1.Direction.*;

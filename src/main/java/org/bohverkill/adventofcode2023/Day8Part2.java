@@ -1,5 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
+import org.bohverkill.utils.Utils;
+
 import static org.bohverkill.adventofcode2023.Day8Part1.*;
 
 public class Day8Part2 {

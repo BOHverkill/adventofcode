@@ -1,6 +1,9 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.models.Pair;
+import org.bohverkill.utils.Utils;
+
 import java.util.*;
 
 import static org.bohverkill.adventofcode2023.Day19Part1.*;
