@@ -1,1 +1,1 @@
-# My solutions to [Advent of Code](http://adventofcode.com) :christmas_tree:
+# My solutions for [Advent of Code](http://adventofcode.com) :christmas_tree:
