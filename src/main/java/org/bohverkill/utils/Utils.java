@@ -42,6 +42,10 @@ public final class Utils {
         }
     }
 
+    public static String[] getInputArray(String name) {
+        return getLines(getInput(name));
+    }
+
     public static String getInput(String name) {
         try {
             return Files.readString(Paths.get(Objects.requireNonNull(Utils.class.getResource(name)).getPath()));
