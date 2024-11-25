@@ -1,7 +1,5 @@
 package org.bohverkill.utils;
 
-import org.bohverkill.adventofcode2023.Day7Part2;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -36,7 +34,7 @@ public final class Utils {
 
     public static Stream<String> getInputLines(String name) {
         try {
-            return Files.lines(Paths.get(Objects.requireNonNull(Day7Part2.class.getResource(name)).getPath()));
+            return Files.lines(Paths.get(Objects.requireNonNull(Utils.class.getResource(name)).getPath()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
