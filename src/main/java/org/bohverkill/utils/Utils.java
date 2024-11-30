@@ -52,6 +52,10 @@ public final class Utils {
         }
     }
 
+    public static Stream<String> getInputSplit(String name, String regex) {
+        return getSplit(getInput(name), regex);
+    }
+
     public static Matcher getMatcher(Pattern pattern, String input) {
         final Matcher matcher = pattern.matcher(input);
         if (!matcher.find()) {
