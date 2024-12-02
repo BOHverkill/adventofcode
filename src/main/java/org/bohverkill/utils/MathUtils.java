@@ -182,6 +182,10 @@ public final class MathUtils {
         return StreamUtils.applyOnArray(longs, Math::max, Long.MIN_VALUE);
     }
 
+    public static boolean negative(int a) {
+        return a < 0;
+    }
+
     public static boolean isInt(double d) {
         return Double.isFinite(d) && d == Math.rint(d);
     }

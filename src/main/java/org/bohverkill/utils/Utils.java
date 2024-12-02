@@ -44,6 +44,14 @@ public final class Utils {
         return getLines(getInput(name));
     }
 
+    public static List<String> getInputList(String name) {
+        try {
+            return Files.readAllLines(Paths.get(Objects.requireNonNull(Utils.class.getResource(name)).getPath()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String getInput(String name) {
         try {
             return Files.readString(Paths.get(Objects.requireNonNull(Utils.class.getResource(name)).getPath()));
