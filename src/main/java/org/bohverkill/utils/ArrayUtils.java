@@ -79,4 +79,24 @@ public final class ArrayUtils {
     public static Stream<Character> stream(final char[] array) {
         return IntStream.range(0, array.length).mapToObj(i -> array[i]);
     }
+
+    public static int[][] transposeIntArray(final char[][] array) {
+        int[][] out = new int[array.length][array[0].length];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                out[i][j] = array[j][i];
+            }
+        }
+        return out;
+    }
+
+    public static char[][] transposeCharArray(final char[][] array) {
+        char[][] out = new char[array.length][array[0].length];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                out[i][j] = array[j][i];
+            }
+        }
+        return out;
+    }
 }

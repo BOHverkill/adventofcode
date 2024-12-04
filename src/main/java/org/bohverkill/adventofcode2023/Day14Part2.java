@@ -1,6 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.utils.StringUtils;
 import org.bohverkill.utils.Utils;
 
 import java.util.*;
@@ -60,8 +61,8 @@ public class Day14Part2 {
                             break;
                         }
                     }
-                    tiltedPlatform.set(i, Utils.replaceCharAt(tiltedPlatform.get(i), j, '.'));
-                    tiltedPlatform.set(newI, Utils.replaceCharAt(tiltedPlatform.get(newI), j, 'O'));
+                    tiltedPlatform.set(i, StringUtils.replaceCharAt(tiltedPlatform.get(i), j, '.'));
+                    tiltedPlatform.set(newI, StringUtils.replaceCharAt(tiltedPlatform.get(newI), j, 'O'));
                 }
             }
         }

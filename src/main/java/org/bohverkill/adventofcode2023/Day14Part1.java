@@ -1,6 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.utils.StringUtils;
 import org.bohverkill.utils.Utils;
 
 import java.util.ArrayList;
@@ -26,8 +27,8 @@ public class Day14Part1 {
             for (int i = 1; i < tiltedPlatform.size(); i++) {
                 for (int j = 0; j < tiltedPlatform.get(i).length(); j++) {
                     if (tiltedPlatform.get(i).charAt(j) == 'O' && tiltedPlatform.get(i - 1).charAt(j) == '.') {
-                        tiltedPlatform.set(i, Utils.replaceCharAt(tiltedPlatform.get(i), j, '.'));
-                        tiltedPlatform.set(i - 1, Utils.replaceCharAt(tiltedPlatform.get(i - 1), j, 'O'));
+                        tiltedPlatform.set(i, StringUtils.replaceCharAt(tiltedPlatform.get(i), j, '.'));
+                        tiltedPlatform.set(i - 1, StringUtils.replaceCharAt(tiltedPlatform.get(i - 1), j, 'O'));
                         changed = true;
                     }
                 }

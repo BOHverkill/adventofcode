@@ -1,6 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.utils.StringUtils;
 import org.bohverkill.utils.Utils;
 
 import java.util.ArrayList;
@@ -22,9 +23,9 @@ public class Day13Part2 {
                 final List<String> tryPattern = new ArrayList<>(pattern);
                 final char c = tryPattern.get(i).charAt(j);
                 if (c == '#') {
-                    tryPattern.set(i, Utils.replaceCharAt(tryPattern.get(i), j, '.'));
+                    tryPattern.set(i, StringUtils.replaceCharAt(tryPattern.get(i), j, '.'));
                 } else {
-                    tryPattern.set(i, Utils.replaceCharAt(tryPattern.get(i), j, '#'));
+                    tryPattern.set(i, StringUtils.replaceCharAt(tryPattern.get(i), j, '#'));
                 }
                 int t = solve(tryPattern, ignore);
                 if (t != -1) {

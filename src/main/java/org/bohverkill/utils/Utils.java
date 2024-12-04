@@ -28,10 +28,6 @@ public final class Utils {
         return Arrays.stream(input.split(regex));
     }
 
-    public static String[] splitAfterNChars(String text, int n) {
-        return text.split("(?<=\\G.{" + n + "})");
-    }
-
     public static Stream<String> getInputLines(String name) {
         try {
             return Files.lines(Paths.get(Objects.requireNonNull(Utils.class.getResource(name)).getPath()));
@@ -83,12 +79,6 @@ public final class Utils {
             positions.add(matcher.start());
         }
         return positions;
-    }
-
-    public static String replaceCharAt(String string, int i, char c) {
-        final StringBuilder stringBuilder = new StringBuilder(string);
-        stringBuilder.setCharAt(i, c);
-        return stringBuilder.toString();
     }
 
 }

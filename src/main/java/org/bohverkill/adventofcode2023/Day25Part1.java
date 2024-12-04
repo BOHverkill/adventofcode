@@ -1,6 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.utils.StringUtils;
 import org.bohverkill.utils.Utils;
 
 import java.util.*;
@@ -15,8 +16,8 @@ public class Day25Part1 {
         if (graph.nodes().size() != 2) {
             throw new IllegalStateException("Bug?");
         }
-        final int first = Utils.splitAfterNChars(graph.nodes().getFirst().name(), 3).length;
-        final int second = Utils.splitAfterNChars(graph.nodes().get(1).name(), 3).length;
+        final int first = StringUtils.splitAfterNChars(graph.nodes().getFirst().name(), 3).length;
+        final int second = StringUtils.splitAfterNChars(graph.nodes().get(1).name(), 3).length;
         System.out.println("Day 25 Part 1: " + first * second);
     }
 

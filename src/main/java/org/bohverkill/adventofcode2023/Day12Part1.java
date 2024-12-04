@@ -1,6 +1,7 @@
 package org.bohverkill.adventofcode2023;
 
 
+import org.bohverkill.utils.StringUtils;
 import org.bohverkill.utils.Utils;
 
 import java.util.Arrays;
@@ -51,8 +52,8 @@ public class Day12Part1 {
                 return 1;
             }
         } else if (partialCheck(springs, groups, i)) {
-            long out = generatePermutation(Utils.replaceCharAt(springs, i, '#'), groups);
-            out += generatePermutation(Utils.replaceCharAt(springs, i, '.'), groups);
+            long out = generatePermutation(StringUtils.replaceCharAt(springs, i, '#'), groups);
+            out += generatePermutation(StringUtils.replaceCharAt(springs, i, '.'), groups);
             return out;
         }
         return 0;
