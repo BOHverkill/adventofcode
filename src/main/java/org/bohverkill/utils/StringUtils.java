@@ -1,5 +1,10 @@
 package org.bohverkill.utils;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public final class StringUtils {
 
     private StringUtils() {
@@ -41,4 +46,31 @@ public final class StringUtils {
         return out;
     }
 
+    public static Stream<String> parseCharToStringStream(final String string) {
+        return Arrays.stream(string.split(""));
+    }
+
+    public static List<String> parseCharToStringList(final String string) {
+        return parseCharToStringStream(string).toList();
+    }
+
+    public static String[] parseCharToStringToArray(final String string) {
+        return parseCharToStringStream(string).toArray(String[]::new);
+    }
+
+    public static Stream<Integer> parseCharToIntegerStream(final String string) {
+        return Arrays.stream(string.split("")).map(Integer::parseInt);
+    }
+
+    public static IntStream parseCharToIntStream(final String string) {
+        return Arrays.stream(string.split("")).mapToInt(Integer::parseInt);
+    }
+
+    public static List<Integer> parseCharToIntegerList(final String string) {
+        return parseCharToIntegerStream(string).toList();
+    }
+
+    public static int[] parseCharToIntegerToArray(final String string) {
+        return parseCharToIntStream(string).toArray();
+    }
 }
