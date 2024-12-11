@@ -246,34 +246,6 @@ public final class MathUtils {
         return new IllegalStateException("Not an integer");
     }
 
-    public static float assertEquals(float a, float b) {
-        if (a != b) {
-            throw new AssertionError("Expected '" + a + "' and '" + b + "' to be equal");
-        }
-        return a;
-    }
-
-    public static double assertEquals(double a, double b) {
-        if (a != b) {
-            throw new AssertionError("Expected '" + a + "' and '" + b + "' to be equal");
-        }
-        return a;
-    }
-
-    public static int assertEquals(int a, int b) {
-        if (a != b) {
-            throw new AssertionError("Expected '" + a + "' and '" + b + "' to be equal");
-        }
-        return a;
-    }
-
-    public static long assertEquals(long a, long b) {
-        if (a != b) {
-            throw new AssertionError("Expected '" + a + "' and '" + b + "' to be equal");
-        }
-        return a;
-    }
-
     // Stream function shortcuts
     public static float plus(float a, float b) {
         return a + b;

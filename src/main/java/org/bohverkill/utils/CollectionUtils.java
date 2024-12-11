@@ -3,6 +3,8 @@ package org.bohverkill.utils;
 import org.bohverkill.models.Pair;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -27,5 +29,9 @@ public final class CollectionUtils {
         // NOTE: can be implemented with Stream Gatherers in the future, once JEP 473 is finalized
         // return list.stream().gather(Gatherers.windowSliding(2)).toList();
         return IntStream.range(0, list.size() - 1).mapToObj(i -> Pair.of(list.get(i), list.get(i + 1))).toList();
+    }
+
+    public static <K, V> void putOrApply(final Map<K, V> map, final K key, final V value, BinaryOperator<V> applyOperator) {
+        map.compute(key, (_, v) -> v == null ? value : applyOperator.apply(v, value));
     }
 }

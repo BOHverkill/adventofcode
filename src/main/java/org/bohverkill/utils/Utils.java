@@ -57,7 +57,7 @@ public final class Utils {
     }
 
     public static Stream<String> getInputSplit(String name, String regex) {
-        return getSplit(getInput(name), regex);
+        return getSplit(getInput(name).trim(), regex);
     }
 
     public static Matcher getMatcher(Pattern pattern, String input) {

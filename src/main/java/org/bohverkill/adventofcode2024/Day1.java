@@ -1,7 +1,7 @@
 package org.bohverkill.adventofcode2024;
 
 import org.bohverkill.models.Pair;
-import org.bohverkill.utils.MathUtils;
+import org.bohverkill.utils.AssertionUtils;
 import org.bohverkill.utils.Utils;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class Day1 {
         left.sort(Integer::compareTo);
         right.sort(Integer::compareTo);
 
-        int sum = IntStream.range(0, MathUtils.assertEquals(left.size(), right.size())).map(i -> Math.abs(left.get(i) - right.get(i))).sum();
+        int sum = IntStream.range(0, AssertionUtils.assertEquals(left.size(), right.size())).map(i -> Math.abs(left.get(i) - right.get(i))).sum();
 
         System.out.println("Part 1: " + sum);
     }
