@@ -10,7 +10,7 @@ public final class MathUtils {
     }
 
     // from https://stackoverflow.com/a/4202114
-    private static float gcd(float a, float b) {
+    public static float gcd(float a, float b) {
         while (b > 0) {
             float temp = b;
             b = a % b; // % = remainder
@@ -19,7 +19,7 @@ public final class MathUtils {
         return a;
     }
 
-    private static double gcd(double a, double b) {
+    public static double gcd(double a, double b) {
         while (b > 0) {
             double temp = b;
             b = a % b; // % = remainder
@@ -28,7 +28,7 @@ public final class MathUtils {
         return a;
     }
 
-    private static long gcd(long a, long b) {
+    public static long gcd(long a, long b) {
         while (b > 0) {
             long temp = b;
             b = a % b; // % = remainder
@@ -37,7 +37,7 @@ public final class MathUtils {
         return a;
     }
 
-    private static int gcd(int a, int b) {
+    public static int gcd(int a, int b) {
         while (b > 0) {
             int temp = b;
             b = a % b; // % = remainder
@@ -46,41 +46,41 @@ public final class MathUtils {
         return a;
     }
 
-    private static float lcm(float a, float b) {
+    public static float lcm(float a, float b) {
         return a * (b / gcd(a, b));
     }
 
-    private static double lcm(double a, double b) {
+    public static double lcm(double a, double b) {
         return a * (b / gcd(a, b));
     }
 
-    private static int lcm(int a, int b) {
+    public static int lcm(int a, int b) {
         return a * (b / gcd(a, b));
     }
 
-    private static long lcm(long a, long b) {
+    public static long lcm(long a, long b) {
         return a * (b / gcd(a, b));
     }
 
-    private static float lcm(float[] input) {
+    public static float lcm(float[] input) {
         float result = input[0];
         for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
         return result;
     }
 
-    private static double lcm(double[] input) {
+    public static double lcm(double[] input) {
         double result = input[0];
         for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
         return result;
     }
 
-    private static int lcm(int[] input) {
+    public static int lcm(int[] input) {
         int result = input[0];
         for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
         return result;
     }
 
-    private static long lcm(long[] input) {
+    public static long lcm(long[] input) {
         long result = input[0];
         for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
         return result;
@@ -194,6 +194,14 @@ public final class MathUtils {
         return Float.isFinite(f) && f == Math.rint(f);
     }
 
+    public static boolean isInt(double d, double delta) {
+        return Double.isFinite(d) && Math.abs(d - Math.round(d)) < delta;
+    }
+
+    public static boolean isInt(float d, float delta) {
+        return Double.isFinite(d) && Math.abs(d - Math.round(d)) < delta;
+    }
+
     public static Optional<Integer> asInt(double d) {
         if (isInt(d)) {
             return Optional.of((int) d);
@@ -226,6 +234,38 @@ public final class MathUtils {
         }
     }
 
+    public static Optional<Integer> asInt(double d, double delta) {
+        if (isInt(d, delta)) {
+            return Optional.of((int) d);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public static Optional<Integer> asInt(float f, float delta) {
+        if (isInt(f, delta)) {
+            return Optional.of((int) f);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public static Optional<Long> asIntLong(double d, double delta) {
+        if (isInt(d, delta)) {
+            return Optional.of((long) d);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public static Optional<Long> asIntLong(float f, float delta) {
+        if (isInt(f, delta)) {
+            return Optional.of((long) f);
+        } else {
+            return Optional.empty();
+        }
+    }
+
     public static int ensureInt(double d) {
         return asInt(d).orElseThrow(MathUtils::createNotAnIntegerIllegalStateExceptionException);
     }
@@ -240,6 +280,22 @@ public final class MathUtils {
 
     public static long ensureIntLong(float f) {
         return asIntLong(f).orElseThrow(MathUtils::createNotAnIntegerIllegalStateExceptionException);
+    }
+
+    public static int ensureInt(double d, double delta) {
+        return asInt(d, delta).orElseThrow(MathUtils::createNotAnIntegerIllegalStateExceptionException);
+    }
+
+    public static int ensureInt(float f, float delta) {
+        return asInt(f, delta).orElseThrow(MathUtils::createNotAnIntegerIllegalStateExceptionException);
+    }
+
+    public static long ensureIntLong(double d, double delta) {
+        return asIntLong(d, delta).orElseThrow(MathUtils::createNotAnIntegerIllegalStateExceptionException);
+    }
+
+    public static long ensureIntLong(float f, float delta) {
+        return asIntLong(f, delta).orElseThrow(MathUtils::createNotAnIntegerIllegalStateExceptionException);
     }
 
     private static IllegalStateException createNotAnIntegerIllegalStateExceptionException() {
