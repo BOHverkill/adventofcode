@@ -34,4 +34,9 @@ public final class CollectionUtils {
     public static <K, V> void putOrApply(final Map<K, V> map, final K key, final V value, BinaryOperator<V> applyOperator) {
         map.compute(key, (_, v) -> v == null ? value : applyOperator.apply(v, value));
     }
+
+    public static <T> List<T> fixedList(T... a) {
+//        return Collections.unmodifiableList(Arrays.asList(a));
+        return List.of(a);
+    }
 }
