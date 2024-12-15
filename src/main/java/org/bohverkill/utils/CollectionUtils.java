@@ -2,6 +2,7 @@ package org.bohverkill.utils;
 
 import org.bohverkill.models.Pair;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BinaryOperator;
@@ -38,5 +39,9 @@ public final class CollectionUtils {
     public static <T> List<T> fixedList(T... a) {
 //        return Collections.unmodifiableList(Arrays.asList(a));
         return List.of(a);
+    }
+
+    public static <T> List<List<T>> copyList(final List<List<T>> src) {
+        return src.stream().map(ArrayList::new).collect(Collectors.toCollection(() -> new ArrayList<>(src.size())));
     }
 }
