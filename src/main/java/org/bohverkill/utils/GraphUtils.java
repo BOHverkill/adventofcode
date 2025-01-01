@@ -1,6 +1,7 @@
 package org.bohverkill.utils;
 
 import org.bohverkill.models.Cell;
+import org.bohverkill.models.Pair;
 import org.bohverkill.models.Point2D;
 import org.bohverkill.models.Vector2D;
 
@@ -52,6 +53,11 @@ public final class GraphUtils {
     public static int manhattanDistance(Cell cell1, Cell cell2) {
 //        return manhattanDistance(cell1.row(), cell1.column(), cell2.row(), cell2.column());
         return Math.abs(cell2.row() - cell1.row()) + Math.abs(cell2.column() - cell1.column());
+    }
+
+    public static int manhattanDistance(Pair<Integer, Integer> pair1, Pair<Integer, Integer> pair2) {
+//        return manhattanDistance(pair1.a(), pair1.b(), pair2.a(), pair2.b());
+        return Math.abs(pair2.a() - pair1.a()) + Math.abs(pair2.b() - pair1.b());
     }
 
     // source: https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection#Given_two_line_equations
