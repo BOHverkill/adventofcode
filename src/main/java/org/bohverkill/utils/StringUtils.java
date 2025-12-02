@@ -15,6 +15,10 @@ public final class StringUtils {
         return text.split("(?<=\\G.{" + n + "})");
     }
 
+    public static String[] splitMiddle(String text) {
+        return new String[]{text.substring(0, text.length() / 2), text.substring(text.length() / 2)};
+    }
+
     public static String replaceCharAt(String string, int i, char c) {
         final StringBuilder stringBuilder = new StringBuilder(string);
         stringBuilder.setCharAt(i, c);
